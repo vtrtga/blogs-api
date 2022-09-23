@@ -1,10 +1,16 @@
+require('dotenv');
+
 const express = require('express');
+
+const routerLogin = require('./routes/login');
 
 // ...
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/login', routerLogin);
 
 // ...
 
