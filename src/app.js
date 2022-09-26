@@ -2,7 +2,9 @@ require('dotenv');
 
 const express = require('express');
 
-const routerLogin = require('./routes/login');
+const loginRouter = require('./routes/login');
+
+const userRouter = require('./routes/user');
 
 // ...
 
@@ -10,7 +12,8 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/login', routerLogin);
+app.use('/login', loginRouter);
+app.use('/user', userRouter);
 
 // ...
 

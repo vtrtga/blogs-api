@@ -1,4 +1,4 @@
-const { loginService } = require('../services/user');
+const { loginService, userSignup } = require('../services/user');
 const getToken = require('../utils/jwtLogin');
 
 const getLoginTokenController = async (req, res) => {
@@ -10,6 +10,14 @@ const getLoginTokenController = async (req, res) => {
         return res.status(200).json({ token: getToken(email) });
 };
 
+const userSignupController = async (req, res) => {
+    const { body } = req;
+    const { email } = body;
+    await userSignup(body);
+    return res.status(201).json({ token: getToken(email) });
+};
+
 module.exports = {
+    userSignupController,
     getLoginTokenController,
 };
