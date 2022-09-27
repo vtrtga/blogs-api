@@ -1,4 +1,5 @@
 const { loginService, userSignup } = require('../services/user');
+const userService = require('../services/user');
 const getToken = require('../utils/jwtLogin');
 
 const getLoginTokenController = async (req, res) => {
@@ -17,7 +18,14 @@ const userSignupController = async (req, res) => {
     return res.status(201).json({ token: getToken(email) });
 };
 
+const getAllUsers = (_req, res) => {
+    const users = userService.getAllUsers();
+
+    res.status(200).json(users);
+};
+
 module.exports = {
+    getAllUsers,
     userSignupController,
     getLoginTokenController,
 };
