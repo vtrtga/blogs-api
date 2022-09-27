@@ -3,7 +3,7 @@ require('dotenv/config');
 const jwt = require('jsonwebtoken');
 const { getUserByEmail } = require('../services/user');
 
-const secret = 'secretJWT';
+const secret = process.env.JWT_SECRET || 'secretJWT';
 
 const tokenValidation = async (req, res, next) => {
     const token = req.headers.authorization;

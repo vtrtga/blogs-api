@@ -1,8 +1,8 @@
 const categoryService = require('../services/category');
 
 const create = async (req, res) => {
-    const { body } = req;
-    const newCategory = await categoryService.create(body);
+    const { name } = req.body;
+    const newCategory = await categoryService.create(name);
     return res.status(201).json(newCategory);
 };
 
