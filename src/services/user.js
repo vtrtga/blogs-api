@@ -17,12 +17,9 @@ const userSignup = async ({ displayName, email, password, image }) => {
 };
 
 const getUserById = async (id) => {
-    try {
-        const user = User.findByPk({ where: id });
+        const user = User.findByPk(id, { attributes: { exclude: ['password'] } });
+        console.log(user);
         return user;
-    } catch (err) {
-        throw Error('User does not exist');
-    }
 };
 
 const getUserByEmail = async (email) => {
