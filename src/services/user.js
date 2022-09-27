@@ -17,8 +17,12 @@ const userSignup = async ({ displayName, email, password, image }) => {
 };
 
 const getUserById = async (id) => {
-    const user = User.findByPk({ where: id });
-    return user;
+    try {
+        const user = User.findByPk({ where: id });
+        return user;
+    } catch (err) {
+        throw Error('User does not exist');
+    }
 };
 
 const getUserByEmail = async (email) => {
@@ -33,7 +37,7 @@ const checkIfUserExist = async (email) => {
 };
 
 const getAllUsers = async () => {
-    const users = await User.findAll();
+    const users = User.findAll({ attributes: { exclude: ['password'] } });
     
     return users;
 };

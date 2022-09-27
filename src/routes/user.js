@@ -1,6 +1,6 @@
 const express = require('express');
 const userMiddlewares = require('../middlewares/user');
-const { userSignupController } = require('../controllers/user');
+const { userSignupController, getAllUsers } = require('../controllers/user');
 const { tokenValidation } = require('../middlewares/auth');
 
 const router = express.Router();
@@ -12,6 +12,8 @@ userMiddlewares.emailValidation,
 userMiddlewares.passwordValidation,
 userSignupController);
 
-router.get('/', tokenValidation);
+router.get('/', tokenValidation, getAllUsers);
+
+router.get('/:id', tokenValidation);
 
 module.exports = router;

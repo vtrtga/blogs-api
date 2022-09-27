@@ -18,13 +18,21 @@ const userSignupController = async (req, res) => {
     return res.status(201).json({ token: getToken(email) });
 };
 
-const getAllUsers = (_req, res) => {
-    const users = userService.getAllUsers();
+const getAllUsers = async (_req, res) => {
+    const users = await userService.getAllUsers();
 
-    res.status(200).json(users);
+    return res.status(200).json(users);
+};
+
+const getUserById = async (req, res) => {
+    const { id } = req.params;
+    const user = await userService.getUserById(id);
+
+    return res.status(200).json(user);
 };
 
 module.exports = {
+    getUserById,
     getAllUsers,
     userSignupController,
     getLoginTokenController,
