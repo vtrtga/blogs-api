@@ -12,4 +12,8 @@ categoriesExist,
 validatePost,
 postController.createPost);
 
+router.get('/',
+tokenValidation,
+postController.getAll);
+
 module.exports = router;
