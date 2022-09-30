@@ -2,7 +2,7 @@ const express = require('express');
 const postController = require('../controllers/post');
 const { tokenValidation } = require('../middlewares/auth');
 const { categoriesExist } = require('../middlewares/category');
-const { validatePost } = require('../middlewares/post');
+const { validatePost, validateUserPostUpdate, validatePostUpdate } = require('../middlewares/post');
 
 const router = express.Router();
 
@@ -17,5 +17,11 @@ tokenValidation,
 postController.getAll);
 
 router.get('/:id', tokenValidation, postController.getById);
+
+router.put('/:id', 
+tokenValidation,
+validateUserPostUpdate,
+validatePostUpdate,
+postController.updatePost);
 
 module.exports = router;
