@@ -28,6 +28,11 @@ const getUserByEmail = async (email) => {
     return user;
 };
 
+const findUserIdByEmail = (email) => {
+    const user = User.findOne({ where: { email }, attributes: ['id'] });
+    return user;
+};
+
 const checkIfUserExist = async (email) => {
     const user = await User.findOne({ where: { email } });
     return user;
@@ -40,6 +45,7 @@ const getAllUsers = async () => {
 };
 
 module.exports = {
+    findUserIdByEmail,
     getUserByEmail,
     getAllUsers,
     getUserById,

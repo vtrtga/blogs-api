@@ -6,6 +6,12 @@ const create = async (name) => {
     return category;
 };
 
+const getById = async (id) => {
+    const category = Category.findByPk(id);
+
+    return category;
+};
+
 const getAll = async () => {
     const categories = Category.findAll();
 
@@ -13,6 +19,7 @@ const getAll = async () => {
 };
 
 module.exports = {
+    getById,
     getAll,
     create,
 };
