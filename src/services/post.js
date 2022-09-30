@@ -35,7 +35,17 @@ const create = async (title, content, categoryIds, userId) => {
     }
 };
 
+const getById = async (postId) => {
+    const post = BlogPost.findByPk(postId, {
+        include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } }],    
+    });
+
+    return post;
+};
+
 module.exports = {
+    getById,
     getAll,
     create,
 };
