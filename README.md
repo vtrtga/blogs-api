@@ -1,16 +1,13 @@
-# 🚧 README em construção 🚧
+Projeto Blogs API
 
-<!-- Olá, Tryber!
+Projeto desenvolvido por mim como estudante da Trybe.
+O projeto foi o primeiro em que utilizei a ORM Sequelize.
+Feito um CRUD de um Blog.
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
-
-É essencial que você preencha esse documento por conta própria, ok?
-
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
+As tecnologias utilizadas foram:
+- Javascript
+- NodeJS
+- Sequelize
+- Docker
+- JWT 
+- Joi
